@@ -23,19 +23,21 @@ namespace Sac1Task1
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            //sets value to the output of calculate_worth
             value = calculate_worth((float)nudPrice.Value, (float)nudAge.Value);
             lblWorth.Text = "It is worth $" + value;
             total += value;
             lblTotalWorth.Text = "The collection so far is worth $" + total;
         }
-
+        //calculates final value of item
         public float calculate_worth(float purchaseVal, float age)
         {
             depreciation = purchaseVal * 0.2f * age;
             if (depreciation > purchaseVal) { return 0f; }
             return purchaseVal - depreciation;
         }
-
+        
+        //empties all inputs and outputs and sets total to 0
         private void btnEndQuote_Click(object sender, EventArgs e)
         {
             total = 0;
